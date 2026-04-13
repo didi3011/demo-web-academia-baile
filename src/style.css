@@ -350,10 +350,11 @@ section {
   text-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
-/* Fix for White Images (Dance Poster & Yoga) */
+/* Fix for Dark Overlays (Dance Poster & Others) */
 .dance-block .bento-overlay,
-.yoga-block .bento-overlay,
-.massage-block .bento-overlay {
+.workshop-block .bento-overlay,
+.event-block .bento-overlay,
+.faculty-block .bento-overlay {
     background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
 }
 
@@ -408,7 +409,7 @@ section {
 .rail-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 40%, transparent 100%);
   padding: 3rem;
   display: flex;
   flex-direction: column;
@@ -429,15 +430,17 @@ section {
   font-weight: 900;
   font-style: italic;
   text-transform: uppercase;
-  margin-bottom: 1rem;
-  line-height: 0.9;
-  transform: rotate(-90deg) translateX(-50%);
-  transform-origin: left bottom;
+  line-height: 1;
   position: absolute;
-  bottom: 10%;
-  left: 20%;
+  bottom: 8rem;
+  left: 6rem; /* Increased to prevent clipping of the top of the letters against the left edge */
+  transform: rotate(-90deg);
+  transform-origin: left bottom;
   white-space: nowrap;
   transition: all 0.5s ease;
+  text-shadow: 0 0 30px rgba(0,0,0,0.9), 0 10px 20px rgba(0,0,0,0.8);
+  filter: drop-shadow(0 0 10px rgba(0,0,0,1));
+  z-index: 5;
 }
 
 .rail-content {
@@ -470,7 +473,7 @@ section {
 
 .rail:hover .rail-title {
   opacity: 0;
-  transform: rotate(-90deg) translateX(-60%);
+  transform: rotate(-90deg) translateY(-20px);
 }
 
 .rail:hover .rail-content {
